@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.2.5/index.min.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5.2.5/index.min.css');
+
+@theme {
+  --font-sans: 'Geist Sans', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  
+  --color-zinc-950: #09090b;
+  --color-zinc-900: #18181b;
+  --color-zinc-800: #27272a;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-400: #a1a1aa;
+  
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+
+  --animate-shimmer: shimmer 2s infinite linear;
+  @keyframes shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+}
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-zinc-950);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-zinc-950);
+  color: var(--color-zinc-100);
+}
+
+/* Custom scrollbar - High Fidelity */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-zinc-950);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-zinc-800);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-emerald-500);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* Dark mode theme adjustments */
+.dark {
+  background-color: var(--color-zinc-950);
+  color: var(--color-zinc-100);
+}
+
+/* High Fidelity Component Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.asymmetric-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .asymmetric-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Lenis Smooth Scroll Core */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
